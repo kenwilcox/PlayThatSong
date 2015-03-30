@@ -78,6 +78,8 @@
 		BEC688981AC8FC51008D6EEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC6889A1AC8FC51008D6EEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		BEC6889C1AC8FC51008D6EEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BECED96F1AC8FE7900C6310F /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		BECED9701AC8FE7900C6310F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,8 @@
 		BEC688561AC8FC3E008D6EEC = {
 			isa = PBXGroup;
 			children = (
+				BECED96F1AC8FE7900C6310F /* LICENSE.md */,
+				BECED9701AC8FE7900C6310F /* README.md */,
 				BEC688611AC8FC3E008D6EEC /* PlayThatSong */,
 				BEC688771AC8FC3E008D6EEC /* PlayThatSongTests */,
 				BEC688891AC8FC51008D6EEC /* PlayThatSong WatchKit Extension */,
@@ -639,6 +643,7 @@
 				BEC688801AC8FC3E008D6EEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEC688811AC8FC3E008D6EEC /* Build configuration list for PBXNativeTarget "PlayThatSongTests" */ = {
 			isa = XCConfigurationList;
@@ -647,6 +652,7 @@
 				BEC688831AC8FC3E008D6EEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEC688A11AC8FC51008D6EEC /* Build configuration list for PBXNativeTarget "PlayThatSong WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -655,6 +661,7 @@
 				BEC688A31AC8FC51008D6EEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEC688A41AC8FC51008D6EEC /* Build configuration list for PBXNativeTarget "PlayThatSong WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -663,6 +670,7 @@
 				BEC688A61AC8FC51008D6EEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
