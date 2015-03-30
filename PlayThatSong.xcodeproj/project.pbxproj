@@ -19,6 +19,9 @@
 		BEC6889B1AC8FC51008D6EEC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC688991AC8FC51008D6EEC /* Interface.storyboard */; };
 		BEC6889D1AC8FC51008D6EEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC6889C1AC8FC51008D6EEC /* Images.xcassets */; };
 		BEC688A01AC8FC51008D6EEC /* PlayThatSong WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BEC688881AC8FC51008D6EEC /* PlayThatSong WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BECED9771AC9048600C6310F /* CLASSICAL SOLITUDE.wav in Resources */ = {isa = PBXBuildFile; fileRef = BECED9741AC9048600C6310F /* CLASSICAL SOLITUDE.wav */; };
+		BECED9781AC9048600C6310F /* Open Source - Sending My Signal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BECED9751AC9048600C6310F /* Open Source - Sending My Signal.mp3 */; };
+		BECED9791AC9048600C6310F /* Timothy Pinkham - The Knolls of Doldesh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BECED9761AC9048600C6310F /* Timothy Pinkham - The Knolls of Doldesh.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		BEC6889C1AC8FC51008D6EEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BECED96F1AC8FE7900C6310F /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		BECED9701AC8FE7900C6310F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BECED9741AC9048600C6310F /* CLASSICAL SOLITUDE.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "CLASSICAL SOLITUDE.wav"; sourceTree = "<group>"; };
+		BECED9751AC9048600C6310F /* Open Source - Sending My Signal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Open Source - Sending My Signal.mp3"; sourceTree = "<group>"; };
+		BECED9761AC9048600C6310F /* Timothy Pinkham - The Knolls of Doldesh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Timothy Pinkham - The Knolls of Doldesh.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,7 @@
 		BEC688621AC8FC3E008D6EEC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BECED9731AC9048600C6310F /* Music */,
 				BEC688631AC8FC3E008D6EEC /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -203,6 +210,16 @@
 				BEC688981AC8FC51008D6EEC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BECED9731AC9048600C6310F /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				BECED9741AC9048600C6310F /* CLASSICAL SOLITUDE.wav */,
+				BECED9751AC9048600C6310F /* Open Source - Sending My Signal.mp3 */,
+				BECED9761AC9048600C6310F /* Timothy Pinkham - The Knolls of Doldesh.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +347,9 @@
 			files = (
 				BEC6886A1AC8FC3E008D6EEC /* Main.storyboard in Resources */,
 				BEC6886F1AC8FC3E008D6EEC /* LaunchScreen.xib in Resources */,
+				BECED9771AC9048600C6310F /* CLASSICAL SOLITUDE.wav in Resources */,
+				BECED9781AC9048600C6310F /* Open Source - Sending My Signal.mp3 in Resources */,
+				BECED9791AC9048600C6310F /* Timothy Pinkham - The Knolls of Doldesh.mp3 in Resources */,
 				BEC6886C1AC8FC3E008D6EEC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
