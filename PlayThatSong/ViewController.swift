@@ -16,6 +16,7 @@ class ViewController: UIViewController {
   
   var audioSession: AVAudioSession!
   var audioQueuePlayer: AVQueuePlayer!
+  var currentSongIndex:Int!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,14 +35,31 @@ class ViewController: UIViewController {
   }
 
   @IBAction func playPreviousButtonPressed(sender: UIButton) {
+    if currentSongIndex > 0 {
+      self.audioQueuePlayer.pause()
+      self.audioQueuePlayer.seekToTime(kCMTimeZero, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+      
+      let temporaryNowPlayIndex = currentSongIndex
+      let temporaryPlayList = self.createSongs()
+      
+      self.audioQueuePlayer.removeAllItems()
+      for var index = temporaryNowPlayIndex - 1; index < temporaryPlayList.count; index++ {
+        self.audioQueuePlayer.insertItem(temporaryPlayList[index] as AVPlayerItem, afterItem: nil)
+      }
+      
+      self.currentSongIndex = temporaryNowPlayIndex - 1
+      self.audioQueuePlayer.seekToTime(kCMTimeZero, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+      self.audioQueuePlayer.play()
+    }
   }
   
   @IBAction func playNextButtonPressed(sender: UIButton) {
     self.audioQueuePlayer.advanceToNextItem()
+    self.currentSongIndex = self.currentSongIndex + 1
   }
   
   //MARK: AVFoundation
-  func configureAudioSession () {
+  func configureAudioSession() {
     var categoryError:NSError?
     var activeError: NSError?
 
@@ -54,7 +72,7 @@ class ViewController: UIViewController {
     }
   }
   
-  func configureAudioQueuePlayer () {
+  func configureAudioQueuePlayer() {
     let songs = createSongs()
     self.audioQueuePlayer = AVQueuePlayer(items: songs)
     for var songIndex = 0; songIndex < songs.count; songIndex++ {
@@ -63,11 +81,12 @@ class ViewController: UIViewController {
     }
   }
   
-  func playMusic () {
+  func playMusic() {
     self.audioQueuePlayer.play()
+    self.currentSongIndex = 0
   }
   
-  func createSongs () -> [AnyObject] {
+  func createSongs() -> [AnyObject] {
     let solitude = NSBundle.mainBundle().pathForResource("CLASSICAL SOLITUDE", ofType: "wav")
     let doldesh = NSBundle.mainBundle().pathForResource("Timothy Pinkham - The Knolls of Doldesh", ofType: "mp3")
     let signal = NSBundle.mainBundle().pathForResource("Open Source - Sending My Signal", ofType: "mp3")
@@ -78,6 +97,11 @@ class ViewController: UIViewController {
       AVPlayerItem(URL: NSURL.fileURLWithPath(signal!))
     ]
     return songs
+  }
+  
+  //MARK: NSNotifications
+  func songEnded(notification: NSNotification) {
+    self.currentSongIndex = self.currentSongIndex + 1
   }
 }
 
