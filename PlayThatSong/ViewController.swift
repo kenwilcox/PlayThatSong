@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     self.configureAudioSession()
+    self.configureAudioPlayer()
   }
   
   override func didReceiveMemoryWarning() {
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func playButtonPressed(sender: UIButton) {
+    self.playMusic()
   }
 
   @IBAction func playPreviousButtonPressed(sender: UIButton) {
@@ -49,6 +51,23 @@ class ViewController: UIViewController {
     if !success {
       println("Error making audio session active \(activeError)")
     }
+  }
+  
+  func configureAudioPlayer () {
+    var songPath = NSBundle.mainBundle().pathForResource("Open Source - Sending My Signal", ofType: "mp3")
+    var songURL = NSURL.fileURLWithPath(songPath!)
+    println("songURL: \(songURL)")
+    
+    var songError: NSError?
+    self.audioPlayer = AVAudioPlayer(contentsOfURL: songURL, error: &songError)
+    
+    println("song error: \(songError)")
+    self.audioPlayer.numberOfLoops = 0
+  }
+  
+  func playMusic () {
+    self.audioPlayer.prepareToPlay()
+    self.audioPlayer.play()
   }
 }
 
