@@ -69,5 +69,18 @@ class ViewController: UIViewController {
     self.audioPlayer.prepareToPlay()
     self.audioPlayer.play()
   }
+  
+  func createSongs () -> [AnyObject] {
+    let solitude = NSBundle.mainBundle().pathForResource("CLASSICAL SOLITUDE", ofType: "wav")
+    let doldesh = NSBundle.mainBundle().pathForResource("Timothy Pinkham - The Knolls of Doldesh", ofType: "mp3")
+    let signal = NSBundle.mainBundle().pathForResource("Open Source - Sending My Signal", ofType: "mp3")
+    
+    let songs: [AnyObject] = [
+      AVPlayerItem(URL: NSURL.fileURLWithPath(solitude!)),
+      AVPlayerItem(URL: NSURL.fileURLWithPath(doldesh!)),
+      AVPlayerItem(URL: NSURL.fileURLWithPath(signal!))
+    ]
+    return songs
+  }
 }
 
