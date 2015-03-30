@@ -15,13 +15,13 @@ class ViewController: UIViewController {
   @IBOutlet weak var currentSongLabel: UILabel!
   
   var audioSession: AVAudioSession!
-  var audioPlayer: AVAudioPlayer!
+  var audioQueuePlayer: AVQueuePlayer!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     self.configureAudioSession()
-    self.configureAudioPlayer()
+    self.configureAudioQueuePlayer()
   }
   
   override func didReceiveMemoryWarning() {
@@ -53,21 +53,17 @@ class ViewController: UIViewController {
     }
   }
   
-  func configureAudioPlayer () {
-    var songPath = NSBundle.mainBundle().pathForResource("Open Source - Sending My Signal", ofType: "mp3")
-    var songURL = NSURL.fileURLWithPath(songPath!)
-    println("songURL: \(songURL)")
-    
-    var songError: NSError?
-    self.audioPlayer = AVAudioPlayer(contentsOfURL: songURL, error: &songError)
-    
-    println("song error: \(songError)")
-    self.audioPlayer.numberOfLoops = 0
+  func configureAudioQueuePlayer () {
+    let songs = createSongs()
+    self.audioQueuePlayer = AVQueuePlayer(items: songs)
+    for var songIndex = 0; songIndex < songs.count; songIndex++ {
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: "songEnded:", name:
+        AVPlayerItemDidPlayToEndTimeNotification, object: songs[songIndex])
+    }
   }
   
   func playMusic () {
-    self.audioPlayer.prepareToPlay()
-    self.audioPlayer.play()
+    self.audioQueuePlayer.play()
   }
   
   func createSongs () -> [AnyObject] {
