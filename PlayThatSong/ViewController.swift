@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
   
+  //MARK: Properties
   @IBOutlet weak var playButton: UIButton!
   @IBOutlet weak var currentSongLabel: UILabel!
   
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
   var audioQueuePlayer: AVQueuePlayer!
   var currentSongIndex:Int!
   
+  //MARK: Overrides
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -30,8 +32,10 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  // MARK: IBActions
   @IBAction func playButtonPressed(sender: UIButton) {
     self.playMusic()
+    self.updateUI()
   }
 
   @IBAction func playPreviousButtonPressed(sender: UIButton) {
@@ -51,11 +55,13 @@ class ViewController: UIViewController {
       self.audioQueuePlayer.seekToTime(kCMTimeZero, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
       self.audioQueuePlayer.play()
     }
+    self.updateUI()
   }
   
   @IBAction func playNextButtonPressed(sender: UIButton) {
     self.audioQueuePlayer.advanceToNextItem()
     self.currentSongIndex = self.currentSongIndex + 1
+    self.updateUI()
   }
   
   //MARK: AVFoundation
@@ -108,6 +114,32 @@ class ViewController: UIViewController {
   //MARK: NSNotifications
   func songEnded(notification: NSNotification) {
     self.currentSongIndex = self.currentSongIndex + 1
+    updateUI()
+  }
+  
+  //MARK: Helper functions
+  func updateUI() {
+    self.currentSongLabel.text = currentSongName()
+    if audioQueuePlayer.rate > 0 && audioQueuePlayer.error == nil {
+      self.playButton.setTitle("Pause", forState: UIControlState.Normal)
+    } else {
+      self.playButton.setTitle("Play", forState: UIControlState.Normal)
+    }
+  }
+  
+  func currentSongName() -> String {
+    var currentSong: String
+    if currentSongIndex == 0 {
+      currentSong = "Classical Solitude"
+    } else if currentSongIndex == 1 {
+      currentSong = "The Knolls of Doldesh"
+    } else if currentSongIndex == 2 {
+      currentSong = "Sending my Signal"
+    } else {
+      currentSong = "No Song Playing"
+      println("Something went wrong!")
+    }
+    return currentSong
   }
 }
 
