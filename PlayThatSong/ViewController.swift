@@ -82,8 +82,14 @@ class ViewController: UIViewController {
   }
   
   func playMusic() {
-    self.audioQueuePlayer.play()
-    self.currentSongIndex = 0
+    if audioQueuePlayer.rate > 0 && audioQueuePlayer.error == nil {
+      self.audioQueuePlayer.pause()
+    } else if currentSongIndex == nil {
+      self.audioQueuePlayer.play()
+      self.currentSongIndex = 0
+    } else {
+      self.audioQueuePlayer.play()
+    }
   }
   
   func createSongs() -> [AnyObject] {
