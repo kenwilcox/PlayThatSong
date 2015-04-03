@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="13E28" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PlayThatSong_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label width="136" height="48.5" alignment="left" text="Label" textAlignment="center" numberOfLines="0" id="2la-Qj-tAu">
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                        </label>
+                        <group width="1" alignment="left" verticalAlignment="center" id="OYv-ZH-ySe">
+                            <items>
+                                <button width="50" alignment="left" title="&lt;" id="ZS4-Pl-XDz">
+                                    <connections>
+                                        <action selector="previousSongButtonPressed" destination="AgC-eL-Hgc" id="bxp-wx-xci"/>
+                                    </connections>
+                                </button>
+                                <button width="50" alignment="right" title="&gt;" id="Ucr-hm-nq5">
+                                    <connections>
+                                        <action selector="nextSongButtonPressed" destination="AgC-eL-Hgc" id="xmP-f4-u22"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Play" id="W6i-ty-ydi">
+                            <connections>
+                                <action selector="playSongButtonPressed" destination="AgC-eL-Hgc" id="Ir9-yQ-5zW"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="songTitleLabel" destination="2la-Qj-tAu" id="qcq-hb-6cg"/>
+                    </connections>
+                </controller>
             </objects>
         </scene>
     </scenes>
