@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     self.playMusic()
     self.updateUI()
   }
-
+  
   @IBAction func playPreviousButtonPressed(sender: UIButton) {
     if currentSongIndex > 0 {
       self.audioQueuePlayer.pause()
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
   func configureAudioSession() {
     var categoryError:NSError?
     var activeError: NSError?
-
+    
     self.audioSession = AVAudioSession.sharedInstance()
     self.audioSession.setCategory(AVAudioSessionCategoryPlayback, error: &categoryError)
     println("error \(categoryError)")
