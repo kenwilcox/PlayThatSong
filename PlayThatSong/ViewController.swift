@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     self.updateUI()
   }
   
-  @IBAction func playPreviousButtonPressed(sender: UIButton) {
+  @IBAction func playPreviousButtonPressed(sender: AnyObject) {
     if currentSongIndex > 0 {
       self.audioQueuePlayer.pause()
       self.audioQueuePlayer.seekToTime(kCMTimeZero, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     self.updateUI()
   }
   
-  @IBAction func playNextButtonPressed(sender: UIButton) {
+  @IBAction func playNextButtonPressed(sender: AnyObject) {
     self.audioQueuePlayer.advanceToNextItem()
     self.currentSongIndex = self.currentSongIndex + 1
     self.updateUI()
@@ -149,6 +149,19 @@ class ViewController: UIViewController {
     let watchKitInfo = notification.object! as WatchKitInfo
     if watchKitInfo.playerRequest != nil {
       let requestedAction: String = watchKitInfo.playerRequest!
+      
+      switch requestedAction {
+      case "Play":
+        self.playMusic()
+      case "Next":
+        self.playNextButtonPressed(self)
+      case "Previous":
+        self.playPreviousButtonPressed(self)
+      default:
+        println("default Value printed something went wrong")
+      }
+      self.updateUI()
+      
       self.playMusic()
     }
   }
