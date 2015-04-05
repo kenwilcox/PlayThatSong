@@ -10,7 +10,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PlayThatSong_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="136" height="48.5" alignment="left" text="Label" textAlignment="center" numberOfLines="0" id="2la-Qj-tAu">
+                        <label width="1" height="48.5" alignment="left" text="Label" textAlignment="center" numberOfLines="0" id="2la-Qj-tAu">
                             <fontDescription key="font" type="system" pointSize="13"/>
                         </label>
                         <group width="1" alignment="left" verticalAlignment="center" id="OYv-ZH-ySe">

@@ -160,9 +160,10 @@ class ViewController: UIViewController {
       default:
         println("default Value printed something went wrong")
       }
-      self.updateUI()
+      let currentSongDictionary = ["CurrentSong" : currentSongName()]
+      watchKitInfo.replyBlock(currentSongDictionary)
       
-      self.playMusic()
+      self.updateUI()
     }
   }
 }

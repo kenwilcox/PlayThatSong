@@ -36,20 +36,33 @@ class InterfaceController: WKInterfaceController {
   @IBAction func previousSongButtonPressed() {
     var info = [key : "Previous"]
     WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
-      println("reply \(reply) error \(error)")})
+      if reply != nil {
+        self.updateLabel(reply as [String : String])
+      }
+    })
   }
   
   @IBAction func nextSongButtonPressed() {
     var info = [key : "Next"]
     WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
-      println("reply \(reply) error \(error)")
+      if reply != nil {
+        self.updateLabel(reply as [String : String])
+      }
     })
   }
   
   @IBAction func playSongButtonPressed() {
     var info = [key: "Play"]
     WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
-      println("relpy \(reply) error \(error)")
+      if reply != nil {
+        self.updateLabel(reply as [String : String])
+      }
     })
+  }
+  
+  //MARK: Helper functions
+  func updateLabel(songDictionary : [String : String]) {
+    let songName = songDictionary["CurrentSong"]
+    self.songTitleLabel.setText(songName)
   }
 }
