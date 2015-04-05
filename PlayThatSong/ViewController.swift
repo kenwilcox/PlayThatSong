@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
     self.configureAudioSession()
     self.configureAudioQueuePlayer()
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleRequest:"), name: "WatchKitDidMakeRequest", object: nil)
   }
   
   override func didReceiveMemoryWarning() {
@@ -140,6 +142,15 @@ class ViewController: UIViewController {
       println("Something went wrong!")
     }
     return currentSong
+  }
+  
+  //MARK: WatchKit Notification
+  func handleRequest(notification : NSNotification) {
+    let watchKitInfo = notification.object! as WatchKitInfo
+    if watchKitInfo.playerRequest != nil {
+      let requestedAction: String = watchKitInfo.playerRequest!
+      self.playMusic()
+    }
   }
 }
 

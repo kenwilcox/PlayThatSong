@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 
+let key = "FunctionRequestKey"
 
 class InterfaceController: WKInterfaceController {
   
@@ -41,7 +42,7 @@ class InterfaceController: WKInterfaceController {
   }
   
   @IBAction func playSongButtonPressed() {
-    var info = ["Key": "Value"]
+    var info = [key: "SomeOtherValue"]
     WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
       println("relpy \(reply) error \(error)")
     })

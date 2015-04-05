@@ -22,6 +22,7 @@
 		BECED9771AC9048600C6310F /* CLASSICAL SOLITUDE.wav in Resources */ = {isa = PBXBuildFile; fileRef = BECED9741AC9048600C6310F /* CLASSICAL SOLITUDE.wav */; };
 		BECED9781AC9048600C6310F /* Open Source - Sending My Signal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BECED9751AC9048600C6310F /* Open Source - Sending My Signal.mp3 */; };
 		BECED9791AC9048600C6310F /* Timothy Pinkham - The Knolls of Doldesh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BECED9761AC9048600C6310F /* Timothy Pinkham - The Knolls of Doldesh.mp3 */; };
+		BECED97B1AD0EE8900C6310F /* WatchKitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECED97A1AD0EE8900C6310F /* WatchKitInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		BECED9741AC9048600C6310F /* CLASSICAL SOLITUDE.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "CLASSICAL SOLITUDE.wav"; sourceTree = "<group>"; };
 		BECED9751AC9048600C6310F /* Open Source - Sending My Signal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Open Source - Sending My Signal.mp3"; sourceTree = "<group>"; };
 		BECED9761AC9048600C6310F /* Timothy Pinkham - The Knolls of Doldesh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Timothy Pinkham - The Knolls of Doldesh.mp3"; sourceTree = "<group>"; };
+		BECED97A1AD0EE8900C6310F /* WatchKitInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				BEC688641AC8FC3E008D6EEC /* AppDelegate.swift */,
 				BEC688661AC8FC3E008D6EEC /* ViewController.swift */,
+				BECED97A1AD0EE8900C6310F /* WatchKitInfo.swift */,
 				BEC688681AC8FC3E008D6EEC /* Main.storyboard */,
 				BEC6886B1AC8FC3E008D6EEC /* Images.xcassets */,
 				BEC6886D1AC8FC3E008D6EEC /* LaunchScreen.xib */,
@@ -388,6 +391,7 @@
 			files = (
 				BEC688671AC8FC3E008D6EEC /* ViewController.swift in Sources */,
 				BEC688651AC8FC3E008D6EEC /* AppDelegate.swift in Sources */,
+				BECED97B1AD0EE8900C6310F /* WatchKitInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
