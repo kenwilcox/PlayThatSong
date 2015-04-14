@@ -50,7 +50,7 @@ class ViewController: UIViewController {
       
       self.audioQueuePlayer.removeAllItems()
       for var index = temporaryNowPlayIndex - 1; index < temporaryPlayList.count; index++ {
-        self.audioQueuePlayer.insertItem(temporaryPlayList[index] as AVPlayerItem, afterItem: nil)
+        self.audioQueuePlayer.insertItem(temporaryPlayList[index] as! AVPlayerItem, afterItem: nil)
       }
       
       self.currentSongIndex = temporaryNowPlayIndex - 1
@@ -146,7 +146,7 @@ class ViewController: UIViewController {
   
   //MARK: WatchKit Notification
   func handleRequest(notification : NSNotification) {
-    let watchKitInfo = notification.object! as WatchKitInfo
+    let watchKitInfo = notification.object! as! WatchKitInfo
     if watchKitInfo.playerRequest != nil {
       let requestedAction: String = watchKitInfo.playerRequest!
       

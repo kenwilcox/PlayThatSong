@@ -37,7 +37,7 @@ class InterfaceController: WKInterfaceController {
     var info = [key : "Previous"]
     WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
       if reply != nil {
-        self.updateLabel(reply as [String : String])
+        self.updateLabel(reply as! [String : String])
       }
     })
   }
@@ -46,7 +46,7 @@ class InterfaceController: WKInterfaceController {
     var info = [key : "Next"]
     WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
       if reply != nil {
-        self.updateLabel(reply as [String : String])
+        self.updateLabel(reply as! [String : String])
       }
     })
   }
@@ -55,7 +55,7 @@ class InterfaceController: WKInterfaceController {
     var info = [key: "Play"]
     WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
       if reply != nil {
-        self.updateLabel(reply as [String : String])
+        self.updateLabel(reply as! [String : String])
       }
     })
   }
